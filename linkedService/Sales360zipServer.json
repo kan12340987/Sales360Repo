@@ -5,7 +5,7 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://github.com/manojkumarsingh77/Shell2023/raw/main/Sales360/DataSet/Sales_360.zip",
+			"url": "https://github.com/kan12340987/Sales360Repo/raw/main/dataset/SourceDataset.zip",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
