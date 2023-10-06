@@ -1,0 +1,55 @@
+{
+	"name": "monthlyprice",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageLineitem",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "part-00000-tid-3414183724401740915-8d8f6874-2948-4113-b1c1-8561b7bf88df-132-1-c000.csv",
+				"folderPath": "parent/curated/monthlyper",
+				"container": "parent"
+			},
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "month(L_SHIPDATE)",
+				"type": "String"
+			},
+			{
+				"name": "sum(L_EXTENDEDPRICE)",
+				"type": "String"
+			},
+			{
+				"name": "sum(Disc_Ext_Price)",
+				"type": "String"
+			},
+			{
+				"name": "sum(Disc_Ext_Price_Tax)",
+				"type": "String"
+			},
+			{
+				"name": "avg(L_QUANTITY)",
+				"type": "String"
+			},
+			{
+				"name": "avg(L_EXTENDEDPRICE)",
+				"type": "String"
+			},
+			{
+				"name": "avg(L_DISCOUNT)",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

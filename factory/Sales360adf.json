@@ -1,0 +1,9 @@
+{
+	"name": "Sales360adf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "fb380295-828a-40ba-9a1d-716d1f8032ba",
+		"tenantId": "dce87315-8ffa-4a01-ab40-0de5a7214b2f"
+	}
+}

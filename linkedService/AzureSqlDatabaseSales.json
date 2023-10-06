@@ -1,0 +1,12 @@
+{
+	"name": "AzureSqlDatabaseSales",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=sales360server.database.windows.net;initial catalog=sales360db;user id=sales360admin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDM2QjJCRUQzLTM1N0EtNEJGRi05RUQ0LTdGRDNDMEExMkZEM19kYjg5MDUzNC0zODc5LTQ0YTUtYjEyNC1kMjE2NjMxMTU3MDUiDQp9"
+		}
+	}
+}

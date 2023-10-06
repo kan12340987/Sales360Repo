@@ -1,0 +1,63 @@
+{
+	"name": "BlobToSqlDataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "monthlyprice",
+						"type": "DatasetReference"
+					},
+					"name": "blobsource"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTableMonthly",
+						"type": "DatasetReference"
+					},
+					"name": "sqlsink"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          {month(L_SHIPDATE)} as string,",
+				"          {sum(L_EXTENDEDPRICE)} as string,",
+				"          {sum(Disc_Ext_Price)} as string,",
+				"          {sum(Disc_Ext_Price_Tax)} as string,",
+				"          {avg(L_QUANTITY)} as string,",
+				"          {avg(L_EXTENDEDPRICE)} as string,",
+				"          {avg(L_DISCOUNT)} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: true,",
+				"     inferDriftedColumnTypes: true,",
+				"     ignoreNoFilesFound: false) ~> blobsource",
+				"blobsource sink(allowSchemaDrift: true,",
+				"     validateSchema: true,",
+				"     input(",
+				"          AddressID as integer,",
+				"          AddressLine1 as string,",
+				"          AddressLine2 as string,",
+				"          City as string,",
+				"          StateProvince as string,",
+				"          CountryRegion as string,",
+				"          PostalCode as string,",
+				"          rowguid as string,",
+				"          ModifiedDate as timestamp",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sqlsink"
+			]
+		}
+	}
+}
